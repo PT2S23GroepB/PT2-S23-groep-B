@@ -7,5 +7,14 @@ namespace ICT4events
 {
     class Schoonmaakbeurt
     {
+        public Schoonmaakbeurt()
+            :base()
+        {
+
+        }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

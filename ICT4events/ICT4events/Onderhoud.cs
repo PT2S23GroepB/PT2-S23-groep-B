@@ -5,7 +5,16 @@ using System.Text;
 
 namespace ICT4events
 {
-    class Onderhoud
+    abstract class Onderhoud
     {
+        private DateTime eindDatum;
+        public DateTime EindDatum { get { return eindDatum; } }
+
+        public Onderhoud()
+        {
+
+        }
+
+        abstract string ToString();
     }
 }
