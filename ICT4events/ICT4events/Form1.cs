@@ -11,9 +11,11 @@ namespace ICT4events
 {
     public partial class Form1 : Form
     {
+        Remise Remise;
         public Form1()
         {
             InitializeComponent();
+            Remise = new Remise("Havenstraat");
         }
     }
 }

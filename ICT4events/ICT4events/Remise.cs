@@ -10,27 +10,51 @@ namespace ICT4events
         private string naam;
         public string Naam { get { return naam; } }
 
+        private List<Tram> trams;
+
+        public List<Tram> Trams { get { return trams; } }
+        private List<Spoor> sporen;
+        public List<Spoor> Sporen { get { return sporen; } }
+        private List<Gebruiker> gebruikers;
+        public List<Gebruiker> Gebruikers { get { return gebruikers; } }
+
         public Remise(string naam)
         {
             this.naam = naam;
+            trams = new List<Tram>();
+            sporen = new List<Spoor>();
+            gebruikers = new List<Gebruiker>();
         }
 
         public void Add(Gebruiker gebruiker)
         {
-
+            gebruiker = new Gebruiker(gebruiker.GebruikersNaam, gebruiker.Type, gebruiker.Wachtwoord);
+            gebruikers.Add(gebruiker);
         }
 
         public void Add(Tram tram)
-        { }
+        {
+            tram = new Tram(tram.Lengte,tram.TramNr,tram.Voorkeurslijn,tram.RFID);
+            trams.Add(tram);
+        }
 
         public void Blokkeer(int spoorNr, int sector)
         {
-
+            foreach(Spoor s in sporen)
+            {
+                if(s.SpoorNr == spoorNr)
+                {
+                    s.Blokkeer(sector);
+                }
+            }
         }
 
         public void Blokkeer(int spoorNr)
         {
-
+            foreach (Spoor s in sporen)
+            {
+                s.Blokkeer();
+            }
         }
 
         public void GeefSchoonmaakLijst(int tramNR)
